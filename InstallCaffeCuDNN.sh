@@ -28,8 +28,8 @@ sudo usermod -a -G video $USER
 # Place caffe in the home directory
 cd $HOME
 # Git clone Caffe
-git clone https://github.com/BVLC/caffe.git 
-cd caffe 
+git clone https://github.com/BVLC/caffe.git
+cd caffe
 cp Makefile.config.example Makefile.config
 # Enable cuDNN usage
 sed -i 's/# USE_CUDNN/USE_CUDNN/g' Makefile.config
@@ -45,3 +45,7 @@ make -j4 all
 make -j4 runtest
 # The following is a quick timing test ...
 # tools/caffe time --model=models/bvlc_alexnet/deploy.prototxt --gpu=0
+
+#Set the bind to python
+cd $HOME
+echo "export PYTHONPATH=$HOME/caffe/python:"$"PYTHONPATH" >> ~/.bashrc
