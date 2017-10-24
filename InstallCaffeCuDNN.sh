@@ -9,7 +9,6 @@
 # CUDA 8.0
 # cuDNN v5.1
 # Tested with last Github Caffe commit: 80f44100e19fd371ff55beb3ec2ad5919fb6ac43
-./jetson_clock.sh
 sudo add-apt-repository universe
 sudo apt-get update -y
 /bin/echo -e "\e[1;32mLoading Caffe Dependencies.\e[0m"
