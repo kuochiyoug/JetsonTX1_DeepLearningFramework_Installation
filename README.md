@@ -13,8 +13,7 @@ Before we start to install our amazing deep learning framework, it is sad to tel
 
 - ** Install JetsonTX1 L4T28.1 (Ubuntu 16.04 64bits ARM version) **
 
-     **Under construction**
-
+     Go Nvidia TX1 site and following the flash up procdures. There is a run file called JetPack-L4T-3.1-linux-x64.run, you can use it directly.
 
 
 After you flash up whole the system to L4T28.1, you should have following library installed:
@@ -28,15 +27,20 @@ and you are good to proceed the install action to your preferred deep learning f
 
 
 ### Installation of Tensorflow-GPU
-     **Under construction**
-     There is two version for installing Tensorflow, choose the corresponding version that you want to use.
+There is two version for installing Tensorflow, choose the corresponding version that you want to use.
 
+  For python2.7.X
+
+    sh ./Install_tensorflow_cp27.sh
+  For python3.5.X
+
+    sh ./Install_tensorflow_cp35.sh
 
 ### Installation of Chainer
-     **Under construction**
+    sh ./InstallChainer.sh
 
 ### Installation of Caffe
-     **Under construction**
+    sh ./InstallCaffeCuDNN.sh
 
 ### Installation of MXNet-GPU
-     **Under construction**
+    sh ./InstallMxNet.sh
