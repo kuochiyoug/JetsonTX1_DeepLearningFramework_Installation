@@ -4,11 +4,12 @@
 # MIT License
 # Install and compile Caffe on NVIDIA Jetson TX1 Development Kit
 # Prerequisites (which can be installed with JetPack 2):
-# L4T 24.2 (Ubuntu 16.04)
+# L4T 28.1 (Ubuntu 16.04)
 # OpenCV4Tegra
 # CUDA 8.0
 # cuDNN v5.1
 # Tested with last Github Caffe commit: 80f44100e19fd371ff55beb3ec2ad5919fb6ac43
+./jetson_clock.sh
 sudo add-apt-repository universe
 sudo apt-get update -y
 /bin/echo -e "\e[1;32mLoading Caffe Dependencies.\e[0m"
@@ -22,6 +23,10 @@ sudo apt-get install libatlas-base-dev -y
 # Remaining Dependencies
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev -y
 sudo apt-get install python-dev python-numpy -y
+sudo apt-get install python-matplotlib python-pil python-scipy -y
+sudo apt-get install build-essential cython -y
+sudo apt-get install python-skimage -y
+
 
 sudo usermod -a -G video $USER
 /bin/echo -e "\e[1;32mCloning Caffe into the home directory\e[0m"
@@ -33,7 +38,7 @@ cd caffe
 cp Makefile.config.example Makefile.config
 # Enable cuDNN usage
 sed -i 's/# USE_CUDNN/USE_CUDNN/g' Makefile.config
-# Regen the makefile; On 16.04, aarch64 has issues with a static cuda runtime
+# Regen the makefile; On 16.04, aarch64 has issues with a static cuda runtime. If you use on 14.04, just use cmake .
 cmake -DCUDA_USE_STATIC_CUDA_RUNTIME=OFF
 # Include the hdf5 directory for the includes; 16.04 has issues for some reason
 echo "INCLUDE_DIRS += /usr/include/hdf5/serial/" >> Makefile.config

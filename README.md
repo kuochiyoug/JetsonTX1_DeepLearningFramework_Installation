@@ -29,6 +29,8 @@ and you are good to proceed the install action to your preferred deep learning f
 
 ### Installation of Tensorflow-GPU
      **Under construction**
+     There is two version for installing Tensorflow, choose the corresponding version that you want to use.
+
 
 ### Installation of Chainer
      **Under construction**
