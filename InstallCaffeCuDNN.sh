@@ -38,8 +38,8 @@ cd caffe
 cp Makefile.config.example Makefile.config
 # Enable cuDNN usage
 sed -i 's/# USE_CUDNN/USE_CUDNN/g' Makefile.config
-# Regen the makefile; On 16.04, aarch64 has issues with a static cuda runtime. If you use on 14.04, just use cmake .
-cmake -DCUDA_USE_STATIC_CUDA_RUNTIME=OFF
+# Regen the makefile;on 14.04, just use cmake .
+cmake .
 # Include the hdf5 directory for the includes; 16.04 has issues for some reason
 echo "INCLUDE_DIRS += /usr/include/hdf5/serial/" >> Makefile.config
 /bin/echo -e "\e[1;32mCompiling Caffe\e[0m"
