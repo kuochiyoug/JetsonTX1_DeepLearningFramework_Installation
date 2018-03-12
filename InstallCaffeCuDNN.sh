@@ -28,7 +28,7 @@ sudo apt-get install build-essential cython -y
 sudo apt-get install python-skimage -y
 
 
-sudo usermod -a -G video $USER
+#sudo usermod -a -G video $USER
 /bin/echo -e "\e[1;32mCloning Caffe into the home directory\e[0m"
 # Place caffe in the home directory
 cd $HOME
@@ -39,12 +39,15 @@ cp Makefile.config.example Makefile.config
 # Enable cuDNN usage
 sed -i 's/# USE_CUDNN/USE_CUDNN/g' Makefile.config
 # Regen the makefile; On 16.04, aarch64 has issues with a static cuda runtime. If you use on 14.04, just use cmake .
-cmake -DCUDA_USE_STATIC_CUDA_RUNTIME=OFF
+mkdir build
+cd build
+cmake -DCUDA_USE_STATIC_CUDA_RUNTIME=OFF .. 
 # Include the hdf5 directory for the includes; 16.04 has issues for some reason
 echo "INCLUDE_DIRS += /usr/include/hdf5/serial/" >> Makefile.config
 /bin/echo -e "\e[1;32mCompiling Caffe\e[0m"
-make pycaffe
+
 make -j4 all
+make pycaffe
 # Run the tests to make sure everything works
 /bin/echo -e "\e[1;32mRunning Caffe Tests\e[0m"
 make -j4 runtest
