@@ -44,3 +44,5 @@ There is two version for installing Tensorflow, choose the corresponding version
 
 ### Installation of MXNet-GPU
     sh ./InstallMxNet.sh
+***If memory not enough problem comes out try to do line by line installation follows except shell scripts***
+

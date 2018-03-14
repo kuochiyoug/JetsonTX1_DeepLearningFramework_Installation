@@ -23,7 +23,6 @@ cp $installation_folder/mxnet0_11_JetsonTX1/mshadow.mk $MXNET_ROOT/mshadow/make/
 rm $MXNET_ROOT/Makefile
 cp $installation_folder/mxnet0_11_JetsonTX1/Makefile $MXNET_ROOT/
 
-
 cd $MXNET_ROOT
 #Make and install
 #Sometimes it will occur error. Just try to do make again
